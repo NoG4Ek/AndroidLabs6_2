@@ -33,6 +33,11 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        executor.shutdown()
+    }
+
     private fun loadImageFromNet() {
         executor = Executors.newFixedThreadPool(1)
         executor.execute {
